@@ -46,7 +46,12 @@
   <section id="portfolio" class="container mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- Project Card 1 -->
     <div class="bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition duration-300" data-aos="fade-up">
-      <video class="w-full h-48 object-cover" controls>
+      <video
+        class="w-full h-48 object-cover rounded-2xl"
+        controls
+        poster="images/loading-placeholder.jpg"
+        preload="metadata"
+      >
         <source src="videos/project1.mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
@@ -93,9 +98,50 @@
     </div>
   </section>
 
+  <div class="relative w-full h-48 bg-gray-100 overflow-hidden rounded-2xl">
+    <!-- Spinner (shown by default) -->
+    <div
+      class="absolute inset-0 flex items-center justify-center bg-white bg-opacity-75"
+      id="spinner-project1"
+    >
+      <!-- Simple SVG spinner -->
+      <svg
+        class="animate-spin h-8 w-8 text-gray-500"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <circle
+          class="opacity-25"
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          stroke-width="4"
+        ></circle>
+        <path
+          class="opacity-75"
+          fill="currentColor"
+          d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+        ></path>
+      </svg>
+    </div>
+  
+    <!-- The actual video -->
+    <video
+      class="w-full h-full object-cover"
+      preload="metadata"
+      poster="images/project1-poster.jpg"
+      controls
+      onloadeddata="document.getElementById('spinner-project1').style.display='none';"
+    >
+      <source src="videos/project1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
   <!-- Articles Section -->
   <section id="articles" class="container mx-auto px-4 mt-16">
-    
     <h2 class="text-3xl font-bold mb-6 text-center">Articles & Writing</h2>
     <div class="container mx-auto px-4 mt-12 text-center mb-8">
       <p class="text-gray-700">
@@ -126,6 +172,8 @@
     </div>
   </section>
 
+  
+
   <!-- AOS Script -->
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
@@ -134,5 +182,10 @@
       once: true
     });
   </script>
+  <footer class="py-8 text-center text-white mt-20">
+    <p class="text-sm">
+      
+    </p>
+  </footer>
 </body>
 </html>
